@@ -1,0 +1,78 @@
+/* Shared site styles to enforce a uniform left sidebar and main content layout
+   Loaded at the end of each <head> so it can override page-specific inline styles.
+*/
+:root{
+  --sidebar-width: 200px;
+  --sidebar-bg: #f9f9f9;
+  --sidebar-border: #ddd;
+  --content-padding: 30px;
+  --max-content-width: 1500px;
+}
+
+html,body{
+  height:100%;
+}
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#333;
+  box-sizing: border-box;
+}
+
+/* Layout container */
+main.layout{
+  display:flex !important;
+  flex-direction:row !important;
+  min-height:100vh;
+}
+
+/* Sidebar: keep consistent appearance and behaviour */
+.sidebar{
+  width:var(--sidebar-width) !important;
+  background:var(--sidebar-bg) !important;
+  border-right:1px solid var(--sidebar-border) !important;
+  padding:16px !important;
+  position:sticky !important;
+  top:0 !important;
+  height:100vh !important;
+  overflow-y:auto !important;
+  flex-shrink:0 !important;
+}
+
+.app-name{ margin:0 0 14px 0; font-size:18px; }
+.app-name-link{ text-decoration:none; color:#222; }
+.sidebar-nav ul{ list-style:none; padding-left:10px; margin:0; }
+.sidebar-nav li{ margin:5px 0; }
+.sidebar-nav a{ color:#0066cc; text-decoration:none; }
+.sidebar-footer{ margin-top:20px; font-size:12px; color:#555; }
+
+/* Main content area: no manual left margin required when using the flex layout */
+.content{
+  flex:1 !important;
+  padding:var(--content-padding) !important;
+  max-width:var(--max-content-width) !important;
+  box-sizing:border-box !important;
+  margin-left:0 !important; /* override pages that insert a left margin */
+  margin-right:0 !important; /* keep right spacing consistent */
+}
+
+/* Make figures and rows consistent */
+.figure{ margin-left:auto; margin-right:auto; max-width:1000px; width:100%; box-sizing:border-box; }
+.figure img{ display:block; width:100%; height:auto; border-radius:10px; }
+.figure figcaption{ font-size:15px; color:#0a0606; text-align:left; margin-top:10px; }
+.row{ display:flex; align-items:center; margin:20px 0; flex-wrap:wrap; }
+
+/* Markdown/list spacing */
+.markdown-section ul li{ margin:10px 0; }
+.markdown-section ul ul li{ margin:6px 0; }
+
+/* Responsive behaviour: stack sidebar on small screens */
+@media (max-width:900px){
+  main.layout{ flex-direction:column !important; }
+  .sidebar{ width:100% !important; height:auto !important; position:relative !important; border-right:none !important; border-bottom:1px solid var(--sidebar-border) !important; }
+  .content{ padding:20px !important; }
+}
+
+/* Small helper to ensure code blocks remain readable */
+pre, code{ font-family: Menlo, Monaco, 'Courier New', monospace; }
+pre{ background:#f6f8fa; color:#0b0b0b; padding:12px; border-radius:6px; border:1px solid #e1e4e8; overflow:auto; }
