@@ -2,25 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FootNet — Training</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="Training FootNet: datasets and hyperparameters">
+  <title>FootNet — Resources</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="https://github.com/nd349/FootNet.ico" type="image/x-icon">
   <link rel="stylesheet" href="./FootNet_files/prism.css">
   <link rel="stylesheet" href="./FootNet_files/styles.css">
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; color: #333; }
-    main.layout { display: flex; flex-direction: row; }
-    .sidebar { width: 200px; background: #f9f9f9; border-right: 1px solid #ddd; padding: 16px; position: sticky; top: 0; }
-    .app-name { margin: 0 0 14px 0; font-size: 18px; }
-    .app-name-link { text-decoration: none; color: #222; }
-    .sidebar-nav ul { list-style: none; padding-left: 10px; }
-    .sidebar-nav li { margin: 5px 0; }
-    .sidebar-nav a { text-decoration: none; color: #0066cc; }
-    .sidebar-footer { margin-top: 20px; font-size: 12px; color: #555; }
-  .content { flex: 1; padding: 30px; max-width: 1500px; }
-  </style>
+  <style>body{ margin:0; }</style>
 </head>
 <body>
   <a href="https://github.com/nd349/FootNet" target="_blank" class="github-corner" aria-label="View source on Github">
@@ -33,7 +20,7 @@
 
   <main class="layout">
     <aside class="sidebar">
-  <h1 class="app-name"><a class="app-name-link" href="index.html"><span class="color-primary text-bold">FootNet</span> Project</a></h1>
+      <h1 class="app-name"><a class="app-name-link" href="index.html"><span class="color-primary text-bold">FootNet</span> Project</a></h1>
       <div class="sidebar-nav">
         <ul>
           <li><p>Getting started</p>
@@ -69,29 +56,41 @@
 
     <section class="content">
       <article class="markdown-section">
-        <h2>Training FootNet</h2>
-        <p>We trained the FootNet models on 500,000 examples across the entire Contiguous United States. 
-          The training data consists of more than 20 TB of space, and as such is not feasible with traditional 
-          deep learning model training methods.</p>
+        <!-- <h1>Resources</h1> -->
 
-        <p>We used <a href="https://docs.pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html" target="_blank" rel="noopener">PyTorch's Distributed Data Parallel (DDP)</a> library to conduct distributed training over 10-15 machines synchronously.</p>
-        <p>Below are the scripts that we used to train Surface FootNet and Column FootNet models using distributed learning.</p>
+        <h2>Code & Tutorials</h2>
         <ul>
-          <li><a href="https://github.com/nd349/FootNet/blob/main/training/SurfaceFootNet_multinode_training.py" target="_blank" rel="noopener">Surface FootNet training</a></li>
-          <li><a href="https://github.com/nd349/FootNet/blob/main/training/ColumnFootNet_multinode_training.py" target="_blank" rel="noopener">Column FootNet training</a></li>
+          <li><a href="https://github.com/nd349/FootNet" target="_blank" rel="noopener">FootNet repository</a></li>
+          <li><a href="https://github.com/nd349/FootNet/blob/main/footnet/ExampleSurfaceFootNet.ipynb" target="_blank" rel="noopener">Surface FootNet tutorial</a></li>
+          <li><a href="https://github.com/nd349/FootNet/blob/main/footnet/ExampleColumnFootNet.ipynb" target="_blank" rel="noopener">Column FootNet tutorial</a></li>
+          <li><a href="https://github.com/nd349/FootNet/blob/main/footnet/get_HRRR_met_lite_files.py" target="_blank" rel="noopener">Generating HRRR met lite files</a></li>
         </ul>
-        <p>These scripts can be used as a reference to fine-tune FootNet models or train a new FootNet model from scratch.</p>
 
-        <h3>Fine-tuning/Training checklist</h3>
+        <!-- <h3>Data</h3>
         <ul>
-          <li>Gather footprints</li>
-          <li>Gather corresponding meteorology data</li>
-          <li>Prepare feature-target pairs for training</li>
-          <li>Preprocess/transform the features</li>
-          <li>Train model and validate</li>
-          <li>Save model</li>
-        </ul>
-        <p>For more information regarding training or fine-tuning, feel free to reach out to <a href="mailto:turneraj@uw.edu">turneraj@uw.edu</a> or <a href="mailto:nd349@uw.edu">nd349@uw.edu</a>.</p>
+          <li><a href="#" target="_blank" rel="noopener">FootNet repository</a></li>
+        </ul> -->
+
+        <h2>References</h2>
+
+        <h3><a href="https://egusphere.copernicus.org/preprints/2025/egusphere-2025-3441/" target="_blank" rel="noopener">FootNet v3.0 Paper: Dadheech and Turner (2025; under review)</a></h3>
+        <p>Cite as:</p>
+        <p>Dadheech, N., and Turner A.J. (2025),
+             Simulating out-of-sample atmospheric transport to enable flux inversions.
+            <i>EGUsphere, 2025</i> 1-20.
+
+        <h3><a href="https://acp.copernicus.org/articles/25/5159/2025/" target="_blank" rel="noopener">FootNet v2.0 Paper: Dadheech et. al. (2025)</a></h3>
+        <p>Cite as:</p>
+        <p>Dadheech, N.*, He T.*, and Turner A.J. (2025),
+            High-resolution greenhouse gas flux inversions using a machine learning surrogate model for atmospheric transport,
+            <i>Atmospheric Chemistry and Physics</i>, <i>25 (10)</i>, 5159-5174, doi:10.5194/acp-25-5159-2025.</p>
+        
+        <h3><a href="https://gmd.copernicus.org/articles/18/1661/2025/" target="_blank" rel="noopener">FootNet v1.0 Paper: He et. al. (2025)</a></h3>
+        <p>Cite as:</p>
+        <p>He T.*, Dadheech, N.*, and Turner A.J. (2025),
+             FootNet v1. 0: development of a machine learning emulator of atmospheric transport. 
+            <i>Geoscientific Model Development</i>, <i>18 (5)</i>, 1661-1671,  doi:10.1021/gmd-18-1661-2025.</p>
+
       </article>
     </section>
   </main>
