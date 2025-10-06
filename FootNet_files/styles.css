@@ -46,6 +46,11 @@ main.layout{
 .sidebar-nav a{ color:#0066cc; text-decoration:none; }
 .sidebar-footer{ margin-top:20px; font-size:12px; color:#555; }
 
+/* Logo inside the sidebar (on-page) */
+.sidebar-logo{ display:flex; align-items:center; gap:10px; }
+.sidebar-logo img{ width:44px; height:44px; object-fit:contain; border-radius:6px; }
+.sidebar-logo .app-name-text{ font-size:18px; font-weight:700; color:#222; text-decoration:none; }
+
 /* Main content area: no manual left margin required when using the flex layout */
 .content{
   flex:1 !important;
