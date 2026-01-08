@@ -56,10 +56,10 @@ main.layout{
   padding-bottom:8px;
 }
 .sidebar-logo img{
-  width:72px; /* larger logo */
-  height:72px;
+  width:96px; /* larger logo */
+  height:96px;
   object-fit:contain;
-  border-radius:8px;
+  border-radius:10px;
   display:block;
 }
 .sidebar-logo .app-name-text{ font-size:18px; font-weight:700; color:#222; text-decoration:none; }
@@ -116,6 +116,8 @@ pre { max-width: 100% !important; box-sizing: border-box !important; }
   main.layout{ flex-direction:column !important; }
   .sidebar{ width:100% !important; height:auto !important; position:relative !important; border-right:none !important; border-bottom:1px solid var(--sidebar-border) !important; }
   .content{ padding:20px !important; }
+  /* reduce logo size on small screens to keep layout compact */
+  .sidebar-logo img { width:56px !important; height:56px !important; }
 }
 
 /* Small helper to ensure code blocks remain readable */
