@@ -47,19 +47,59 @@ main.layout{
 .sidebar-footer{ margin-top:20px; font-size:12px; color:#555; }
 
 /* Logo inside the sidebar (on-page) */
-.sidebar-logo{ display:flex; align-items:center; gap:10px; }
-.sidebar-logo img{ width:44px; height:44px; object-fit:contain; border-radius:6px; }
+.sidebar-logo{
+  display:flex;
+  align-items:center;
+  justify-content:center; /* center the logo horizontally */
+  flex-direction:column;
+  gap:8px;
+  padding-bottom:8px;
+}
+.sidebar-logo img{
+  width:72px; /* larger logo */
+  height:72px;
+  object-fit:contain;
+  border-radius:8px;
+  display:block;
+}
 .sidebar-logo .app-name-text{ font-size:18px; font-weight:700; color:#222; text-decoration:none; }
 
 /* Main content area: no manual left margin required when using the flex layout */
 .content{
   flex:1 !important;
   padding:var(--content-padding) !important;
-  max-width:var(--max-content-width) !important;
+  /* Never allow content to overflow the viewport: pick the smaller of the site max
+     and the available viewport space after reserving sidebar + padding. */
+  max-width: min(var(--max-content-width), calc(100vw - var(--sidebar-width) - (var(--content-padding) * 2))) !important;
   box-sizing:border-box !important;
   margin-left:0 !important; /* override pages that insert a left margin */
   margin-right:0 !important; /* keep right spacing consistent */
+  overflow-x: hidden !important;
 }
+
+/* Center and constrain the inner article so pages appear uniform
+   This prevents page content from stretching to the far-right edge
+   while keeping the sidebar fixed on the left. */
+.content{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+}
+
+.content > .markdown-section{
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  /* Allow long words/URLs/code to break instead of expanding the container */
+  word-wrap: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Ensure images inside content can't grow beyond the article */
+.content img, .markdown-section img { max-width: 100% !important; height: auto !important; }
+
+/* Make pre/code blocks constrained and scrollable without expanding layout */
+pre { max-width: 100% !important; box-sizing: border-box !important; }
 
 /* Make figures and rows consistent */
 .figure{ margin-left:auto; margin-right:auto; max-width:1000px; width:100%; box-sizing:border-box; }

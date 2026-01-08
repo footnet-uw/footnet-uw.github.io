@@ -23,7 +23,7 @@
     .sidebar-nav li { margin: 5px 0; }
     .sidebar-nav a { text-decoration: none; color: #0066cc; }
     .sidebar-footer { margin-top: 20px; font-size: 12px; color: #555; }
-  .content { flex: 1; padding: 30px; max-width: 1500px; }
+  .content { flex: 1; padding: 30px; max-width: var(--max-content-width); box-sizing: border-box; }
     .figure {margin-left: auto; margin-right: auto; max-width: 1000px; width: 100%; box-sizing: border-box;}
     .figure img {display: block; width: 100%; height: auto; border-radius: 10px;}
     .figure figcaption {font-size: 15px; color: #0a0606; text-align: left; margin-top: 10px;}
@@ -51,7 +51,6 @@
       <h1 class="app-name">
         <div class="sidebar-logo">
           <a href="index.html"><img src="./figures/FootNet.png" alt="FootNet logo"></a>
-          <a class="app-name-link app-name-text" href="index.html"><span class="color-primary text-bold">FootNet</span> Project</a>
         </div>
       </h1>
       <div class="sidebar-nav">
